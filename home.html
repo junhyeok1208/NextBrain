@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인페이지</title>
+    <style>
+        body{
+            background-image: url(../resources/images/dollars.jpg);
+        } 
+        .container{
+            width: 1200px;
+            height: 800px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+        }
+        h2{
+            font-size: 30px;
+            text-align: center;
+        }
+        .container > div:nth-child(1){
+            margin: auto;
+        }
+        .container > div:nth-child(2){
+            margin-top: 20px;
+        }
+        .container button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 18px;   
+        }
+        .modal{
+            width: 400px;
+            height: 300px;
+            border-radius: 20px;
+            box-shadow: 4px 4px 4px 4px gainsboro;
+            background-color: white;
+
+            position: absolute;
+            top: 20%;
+            left: 50%;
+
+            transform: translate(-50%, 0);
+        }
+        .qwer{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            height: 200px;
+        }
+        .align-end{
+            text-align: end;
+        }
+        /* 애니메이션 */
+        @keyframes down{
+            0%{
+                top: 0;
+                transform: translate(-23%, -100%);
+            }
+            100%{
+                top: 10%;
+                transform: translate(-23%, -28%);
+            }
+        }
+        .modal-down{
+            animation: down 0.5s forwards;
+        }
+        .d-none{
+            display: none;
+        }
+        .container div:nth-child(3) button:nth-child(1){
+            background-color: blue;
+            color: white;
+        }
+        .container div:nth-child(3) button:nth-child(2){
+            background-color: green;
+            color: white;
+        }
+        .container div:nth-child(3) button:nth-child(3){
+            background-color: red;
+            color: white;
+        }
+        .images{
+            width: 1200px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h2>에임연습게임</h2>
+        </div>
+        <div>
+            <button onclick="f_down()">게임방법</button>
+            <button onclick="f_start()">게임시작</button>
+            <button onclick="f_ranking()">순위표</button>
+        </div>
+        <div class="balance d-none">
+            <button onclick="f_easy()">Easy</button>
+            <button onclick="f_normal()">Normal</button>
+            <button onclick="f_hard()">Hard</button>
+        </div>
+        <div class="modal modal-down d-none">
+            <div class="align-end">
+                <img onclick="f_close()" width="40" height="40" src="../resources/images/x.png" alt="">
+                <div class="qwer">
+                    에임연습게임에 오신것을 환영합니다!!<br>
+                    게임시작 버튼을 누르면 5초 후 게임이 시작됩니다!!<br>
+                    버튼을 빠르게 눌러서 기록을 달성하세요!!
+                </div>
+            </div>
+        </div>
+        <div class="rainbow">
+            <div class="images">
+                <img src="https://opgg-com-image.akamaized.net/attach/images/20210218135815.1263005.gif" alt="">
+                <img src="https://opgg-com-image.akamaized.net/attach/images/20210218135815.1263005.gif" alt="">
+            </div>
+        </div>
+    </div>
+    <script>
+        const v_modal = document.getElementsByClassName("modal")[0];
+        const v_balance = document.querySelector(".balance");
+
+        function f_down() {
+            v_modal.classList.remove("d-none");
+        }
+        function f_close() {
+            v_modal.classList.add("d-none");
+        }
+
+        function f_start() { // 게임시작을 누르면 난이도 선택버튼이 나온다.
+            v_balance.classList.remove("d-none");
+        }
+        function f_easy() {
+            location.href = "./게임페이지(Easy).html";
+        }
+        function f_normal() {
+            location.href = "./게임페이지(Normal).html";
+        }
+        function f_hard() {
+            location.href = "./게임페이지(Hard).html";
+        }
+        // ---------------------------------------------------------------
+        
+
+    </script>
+</body>
+</html>
